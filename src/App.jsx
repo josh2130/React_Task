@@ -6,14 +6,6 @@ import { MathJaxContext, MathJax } from "better-react-mathjax";
 function App() {
   const [page, setPage] = useState(1);
   const [question, setQuestion] = useState(null);
-  const config = {
-    loader: { load: ["[tex]/html"] },
-    tex: {
-      packages: { "[+]": ["html"] },
-      inlineMath: [["$", "$"]],
-      displayMath: [["$$", "$$"]],
-    },
-  };
 
   useEffect(() => {
     if (page || page != 0) {
@@ -41,7 +33,7 @@ function App() {
       <div className="question-section">
         {question ? (
           <MathJaxContext>
-            <MathJax dynamic inline>{question}</MathJax>
+            <MathJax dynamic>{question}</MathJax>
           </MathJaxContext>
         ) : (
           "loading"
