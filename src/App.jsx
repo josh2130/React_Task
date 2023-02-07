@@ -19,8 +19,9 @@ function App() {
       const res = await axios.get(url);
       if (res.status === 200) {
         setQuestion(await res.data[0]?.Question);
+      }else{
+        window.alert(res.message);
       }
-      console.log(res);
     } catch (err) {
       console.error(err);
     }
